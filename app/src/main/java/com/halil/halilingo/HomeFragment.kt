@@ -1,17 +1,21 @@
 package com.halil.halilingo
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.speech.tts.TextToSpeech
+import android.speech.tts.TextToSpeech.OnInitListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.halil.halilingo.databinding.FragmentHomeBinding
+import java.util.Locale
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnInitListener {
 
     private lateinit var adapter: AllWordsAdapter
+
+    private lateinit var tts: TextToSpeech
 
     override fun inflateBinding(
         inflater: LayoutInflater,
@@ -20,13 +24,33 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return FragmentHomeBinding.inflate(inflater, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = AllWordsAdapter(getAllWords()) { id ->
-            Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
+
+        tts = TextToSpeech(requireContext(), this)
+
+
+        adapter = AllWordsAdapter(getAllWords(), onWordClick = { id ->
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(id)
+            findNavController().navigate(action)
+        }) {
+            speak(it)
         }
         binding.rvAllWords.layoutManager = LinearLayoutManager(requireContext())
         binding.rvAllWords.adapter = adapter
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            tts.language = Locale.ENGLISH
+        } else {
+            // Handle the initialization failure
+        }
+    }
+
+    fun speak(text: String) {
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
     private fun getAllWords(): List<WordModel> {
@@ -39,4 +63,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return allWords
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        tts.stop()
+        tts.shutdown()
+    }
 }

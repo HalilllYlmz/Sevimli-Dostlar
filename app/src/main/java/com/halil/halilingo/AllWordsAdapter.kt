@@ -1,13 +1,16 @@
 package com.halil.halilingo
 
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.halil.halilingo.databinding.ItemLayoutAllWordsBinding
+import java.io.IOException
 
 class AllWordsAdapter(
     private val allWordsList: List<WordModel>,
-    private val onWordClick: (Int) -> Unit
+    private val onWordClick: (Int) -> Unit,
+    private val onImageClicked: (String) -> Unit
 ) : RecyclerView.Adapter<AllWordsAdapter.AllWordsViewHolder>() {
 
     inner class AllWordsViewHolder(private val binding: ItemLayoutAllWordsBinding) :
@@ -17,6 +20,19 @@ class AllWordsAdapter(
                 textView.text = wordModel.word
                 textView.setOnClickListener {
                     onWordClick(wordModel.id)
+                }
+                val assetManager = root.context.assets
+                try {
+                    val inputStream = assetManager.open("images/tiger.jpg")
+                    val bitmap = BitmapFactory.decodeStream(inputStream)
+                    imageView.setImageBitmap(bitmap)
+                    inputStream.close()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                    imageView.setImageResource(R.drawable.all)
+                }
+                imageView.setOnClickListener {
+                    onImageClicked(wordModel.word)
                 }
             }
         }
