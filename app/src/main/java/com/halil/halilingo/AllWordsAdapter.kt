@@ -3,9 +3,11 @@ package com.halil.halilingo
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.compose.ui.text.toLowerCase
 import androidx.recyclerview.widget.RecyclerView
 import com.halil.halilingo.databinding.ItemLayoutAllWordsBinding
 import java.io.IOException
+import java.util.Locale
 
 class AllWordsAdapter(
     private val allWordsList: List<WordModel>,
@@ -23,7 +25,7 @@ class AllWordsAdapter(
                 }
                 val assetManager = root.context.assets
                 try {
-                    val inputStream = assetManager.open("images/tiger.jpg")
+                    val inputStream = assetManager.open("images/${wordModel.word.lowercase(Locale.getDefault())}.jpg")
                     val bitmap = BitmapFactory.decodeStream(inputStream)
                     imageView.setImageBitmap(bitmap)
                     inputStream.close()

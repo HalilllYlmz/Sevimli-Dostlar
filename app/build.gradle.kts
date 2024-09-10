@@ -44,7 +44,6 @@ dependencies {
     //Swipe To Refresh
     implementation(libs.androidx.swiperefreshlayout)
 
-
     // Lifecycle
     implementation (libs.androidx.lifecycle.livedata.ktx)
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
