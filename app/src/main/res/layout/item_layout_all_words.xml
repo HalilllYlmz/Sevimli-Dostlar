@@ -35,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:gravity="center"
+                android:fontFamily="@font/playwritecu_regular"
                 android:padding="6dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
