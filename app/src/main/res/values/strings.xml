@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Halilingo</string>
+    <string name="app_name">Sevimli Dostlar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="learned">Learned</string>
+    <string name="volume_icon">volume icon</string>
 </resources>
