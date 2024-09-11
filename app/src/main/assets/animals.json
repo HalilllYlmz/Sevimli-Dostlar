@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "english": "Alpaca",
+    "turkish": "Alpaka"
+  },
+  {
+    "id": 2,
+    "english": "Antelope",
+    "turkish": "Antilop"
+  },
+  {
+    "id": 3,
+    "english": "Bat",
+    "turkish": "Yarasa"
+  },
+  {
+    "id": 4,
+    "english": "Buffalo",
+    "turkish": "Bufalo"
+  },
+  {
+    "id": 5,
+    "english": "Camel",
+    "turkish": "Deve"
+  },
+  {
+    "id": 6,
+    "english": "Cat",
+    "turkish": "Kedi"
+  },
+  {
+    "id": 7,
+    "english": "Cheetah",
+    "turkish": "Çita"
+  },
+  {
+    "id": 8,
+    "english": "Chimpanzee",
+    "turkish": "Şempanze"
+  },
+  {
+    "id": 9,
+    "english": "Cow",
+    "turkish": "İnek"
+  },
+  {
+    "id": 10,
+    "english": "Crocodile",
+    "turkish": "Krokodil"
+  },
+  {
+    "id": 11,
+    "english": "Deer",
+    "turkish": "Geyik"
+  },
+  {
+    "id": 12,
+    "english": "Dog",
+    "turkish": "Köpek"
+  },
+  {
+    "id": 13,
+    "english": "Dolphin",
+    "turkish": "Yunus"
+  },
+  {
+    "id": 14,
+    "english": "Donkey",
+    "turkish": "Eşek"
+  },
+  {
+    "id": 15,
+    "english": "Eagle",
+    "turkish": "Şahin"
+  },
+  {
+    "id": 16,
+    "english": "Elephant",
+    "turkish": "Fil"
+  },
+  {
+    "id": 17,
+    "english": "Flamingo",
+    "turkish": "Flamingo"
+  },
+  {
+    "id": 18,
+    "english": "Fox",
+    "turkish": "Tilki"
+  },
+  {
+    "id": 19,
+    "english": "Giraffe",
+    "turkish": "Zürafa"
+  },
+  {
+    "id": 20,
+    "english": "Goat",
+    "turkish": "Keçi"
+  },
+  {
+    "id": 21,
+    "english": "Gorilla",
+    "turkish": "Goril"
+  },
+  {
+    "id": 22,
+    "english": "Hedgehog",
+    "turkish": "Kirpi"
+  },
+  {
+    "id": 23,
+    "english": "Hippo",
+    "turkish": "Hippopotam"
+  },
+  {
+    "id": 24,
+    "english": "Horse",
+    "turkish": "At"
+  },
+  {
+    "id": 25,
+    "english": "Jellyfish",
+    "turkish": "Ahtapot"
+  },
+  {
+    "id": 26,
+    "english": "Kangaroo",
+    "turkish": "Kanguru"
+  },
+  {
+    "id": 27,
+    "english": "Koala",
+    "turkish": "Koala"
+  },
+  {
+    "id": 28,
+    "english": "Leopard",
+    "turkish": "Leopar"
+  },
+  {
+    "id": 29,
+    "english": "Lion",
+    "turkish": "Aslan"
+  },
+  {
+    "id": 30,
+    "english": "Llama",
+    "turkish": "Llama"
+  },
+  {
+    "id": 31,
+    "english": "Monkey",
+    "turkish": "Maymun"
+  },
+  {
+    "id": 32,
+    "english": "Otter",
+    "turkish": "Su Samuru"
+  },
+  {
+    "id": 33,
+    "english": "Owl",
+    "turkish": "Baykuş"
+  },
+  {
+    "id": 34,
+    "english": "Panda",
+    "turkish": "Panda"
+  },
+  {
+    "id": 35,
+    "english": "Parrot",
+    "turkish": "Papağan"
+  },
+  {
+    "id": 36,
+    "english": "Peacock",
+    "turkish": "Tavus Kuşu"
+  },
+  {
+    "id": 37,
+    "english": "Penguin",
+    "turkish": "Penguen"
+  },
+  {
+    "id": 38,
+    "english": "Pig",
+    "turkish": "Domuz"
+  },
+  {
+    "id": 39,
+    "english": "Pigeon",
+    "turkish": "Güvercin"
+  },
+  {
+    "id": 40,
+    "english": "Rabbit",
+    "turkish": "Tavşan"
+  },
+  {
+    "id": 41,
+    "english": "Rhinoceros",
+    "turkish": "Gergedan"
+  },
+  {
+    "id": 42,
+    "english": "Scorpion",
+    "turkish": "Akrep"
+  },
+  {
+    "id": 43,
+    "english": "Seal",
+    "turkish": "Fok"
+  },
+  {
+    "id": 44,
+    "english": "Sheep",
+    "turkish": "Koyun"
+  },
+  {
+    "id": 45,
+    "english": "Snake",
+    "turkish": "Yılan"
+  },
+  {
+    "id": 46,
+    "english": "Sparrow",
+    "turkish": "Serçe"
+  },
+  {
+    "id": 47,
+    "english": "Squirrel",
+    "turkish": "Sincap"
+  },
+  {
+    "id": 48,
+    "english": "Tiger",
+    "turkish": "Kaplan"
+  },
+  {
+    "id": 49,
+    "english": "Wolf",
+    "turkish": "Kurt"
+  },
+  {
+    "id": 50,
+    "english": "Zebra",
+    "turkish": "Zebra"
+  }
+]

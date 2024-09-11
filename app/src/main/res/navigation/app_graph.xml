@@ -14,6 +14,9 @@
             android:name="wordId"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="animal"
+            app:argType="com.halil.halilingo.WordModel" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"

@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -40,6 +42,9 @@ android {
 }
 
 dependencies {
+
+    //Gson
+    implementation(libs.gson)
 
     //Swipe To Refresh
     implementation(libs.androidx.swiperefreshlayout)

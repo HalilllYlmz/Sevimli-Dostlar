@@ -11,7 +11,7 @@ import java.util.Locale
 
 class AllWordsAdapter(
     private val allWordsList: List<WordModel>,
-    private val onWordClick: (Int) -> Unit,
+    private val onWordClick: (WordModel) -> Unit,
     private val onImageClicked: (String) -> Unit
 ) : RecyclerView.Adapter<AllWordsAdapter.AllWordsViewHolder>() {
 
@@ -19,13 +19,13 @@ class AllWordsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(wordModel: WordModel) {
             with(binding) {
-                textView.text = wordModel.word
+                textView.text = wordModel.english
                 textView.setOnClickListener {
-                    onWordClick(wordModel.id)
+                    onWordClick(wordModel)
                 }
                 val assetManager = root.context.assets
                 try {
-                    val inputStream = assetManager.open("images/${wordModel.word.lowercase(Locale.getDefault())}.jpg")
+                    val inputStream = assetManager.open("images/${wordModel.english.lowercase(Locale.getDefault())}.jpg")
                     val bitmap = BitmapFactory.decodeStream(inputStream)
                     imageView.setImageBitmap(bitmap)
                     inputStream.close()
@@ -34,7 +34,7 @@ class AllWordsAdapter(
                     imageView.setImageResource(R.drawable.all)
                 }
                 imageView.setOnClickListener {
-                    onImageClicked(wordModel.word)
+                    onImageClicked(wordModel.english)
                 }
             }
         }
