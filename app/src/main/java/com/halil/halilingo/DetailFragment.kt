@@ -1,5 +1,6 @@
 package com.halil.halilingo
 
+import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -26,6 +27,17 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val animal = DetailFragmentArgs.fromBundle(requireArguments()).animal
+        val id = DetailFragmentArgs.fromBundle(requireArguments()).screenId
+
+        val sharedPreferences = requireContext().getSharedPreferences("LearnedWords", Context.MODE_PRIVATE)
+
+        val learnedAnimals = sharedPreferences.getStringSet("learnedWords", mutableSetOf())?.toMutableSet()
+
+        if(id == 1) {
+            binding.learnedSwitch.isChecked = true
+        }else {
+            binding.learnedSwitch.isChecked = false
+        }
 
         tts = TextToSpeech(requireContext(), this)
 
@@ -45,6 +57,16 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
         }
         binding.btnVolume.setOnClickListener {
             speak(animal.english)
+        }
+        binding.learnedSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked) {
+                learnedAnimals?.add(animal.english)
+                sharedPreferences.edit().putStringSet("learnedWords", learnedAnimals).apply()
+            }else {
+                learnedAnimals?.remove(animal.english)
+                sharedPreferences.edit().putStringSet("learnedWords", learnedAnimals).apply()
+            }
+
         }
 
     }

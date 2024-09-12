@@ -11,9 +11,9 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
-            android:name="wordId"
+            android:name="screenId"
             app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="-1" />
         <argument
             android:name="animal"
             app:argType="com.halil.halilingo.WordModel" />
@@ -31,5 +31,9 @@
         android:id="@+id/learnedFragment"
         android:name="com.halil.halilingo.LearnedFragment"
         android:label="fragment_learned"
-        tools:layout="@layout/fragment_learned" />
+        tools:layout="@layout/fragment_learned" >
+        <action
+            android:id="@+id/action_learnedFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

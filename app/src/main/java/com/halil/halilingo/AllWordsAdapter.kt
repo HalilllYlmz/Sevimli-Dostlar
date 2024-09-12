@@ -3,16 +3,14 @@ package com.halil.halilingo
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.compose.ui.text.toLowerCase
 import androidx.recyclerview.widget.RecyclerView
 import com.halil.halilingo.databinding.ItemLayoutAllWordsBinding
 import java.io.IOException
 import java.util.Locale
 
 class AllWordsAdapter(
-    private val allWordsList: List<WordModel>,
-    private val onWordClick: (WordModel) -> Unit,
-    private val onImageClicked: (String) -> Unit
+    private var allWordsList: List<WordModel>,
+    private val onItemClick: (WordModel) -> Unit,
 ) : RecyclerView.Adapter<AllWordsAdapter.AllWordsViewHolder>() {
 
     inner class AllWordsViewHolder(private val binding: ItemLayoutAllWordsBinding) :
@@ -21,7 +19,7 @@ class AllWordsAdapter(
             with(binding) {
                 textView.text = wordModel.english
                 textView.setOnClickListener {
-                    onWordClick(wordModel)
+                    onItemClick(wordModel)
                 }
                 val assetManager = root.context.assets
                 try {
@@ -32,9 +30,6 @@ class AllWordsAdapter(
                 } catch (e: IOException) {
                     e.printStackTrace()
                     imageView.setImageResource(R.drawable.all)
-                }
-                imageView.setOnClickListener {
-                    onImageClicked(wordModel.english)
                 }
             }
         }
@@ -52,4 +47,10 @@ class AllWordsAdapter(
     }
 
     override fun getItemCount() = allWordsList.size
+
+    fun updateList(newList: List<WordModel>) {
+        allWordsList = newList
+        notifyDataSetChanged()  // Listenin güncellendiğini adaptöre bildir
+    }
+
 }
