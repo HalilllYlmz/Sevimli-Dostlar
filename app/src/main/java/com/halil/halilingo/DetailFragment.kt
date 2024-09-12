@@ -61,7 +61,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
             inputStream.close()
         } catch (e: IOException) {
             e.printStackTrace()
-            binding.ivAnimal.setImageResource(R.drawable.all)
+            binding.ivAnimal.setImageResource(R.drawable.gorilla)
         }
         binding.btnVolume.setOnClickListener {
             speak(animal.english)

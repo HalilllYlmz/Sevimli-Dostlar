@@ -29,7 +29,7 @@ class AllWordsAdapter(
                     inputStream.close()
                 } catch (e: IOException) {
                     e.printStackTrace()
-                    imageView.setImageResource(R.drawable.all)
+                    imageView.setImageResource(R.drawable.gorilla)
                 }
             }
         }

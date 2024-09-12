@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@id/homeFragment"
         android:title="@string/home"
-        android:icon="@drawable/all"/>
+        android:icon="@drawable/chicken_coop"/>
     <item android:id="@id/learnedFragment"
         android:title="@string/learned"
-        android:icon="@drawable/learned"/>
+        android:icon="@drawable/gorilla"/>
 
 </menu>

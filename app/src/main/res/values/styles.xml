@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="CustomToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/playwritecu_regular</item>
+        <item name="android:textSize">24sp</item> <!-- Gerektiğinde text size'ı da belirleyin -->
+    </style>
+    <style name="CustomToolbarNavItemTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/playwritecu_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

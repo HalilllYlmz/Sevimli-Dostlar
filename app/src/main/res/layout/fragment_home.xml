@@ -13,10 +13,12 @@
         android:layout_height="wrap_content"
         android:background="@color/orange"
         android:theme="?attr/actionBarTheme"
-        app:title="@string/unlearned_animals"
-        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/paw_print"
         app:navigationIconTint="@color/white"
-        app:navigationIcon="@drawable/paw_print" />
+
+        app:title="@string/unlearned_animals"
+        app:titleTextAppearance="@style/CustomToolbarTitleTextAppearance"
+        app:titleTextColor="@color/white" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
@@ -27,7 +29,7 @@
             android:id="@+id/rvAllWords"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_layout_all_words"/>
+            tools:listitem="@layout/item_layout_all_words" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

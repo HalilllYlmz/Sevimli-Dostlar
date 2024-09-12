@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/orange"
+        app:titleTextAppearance="@style/CustomToolbarTitleTextAppearance"
         android:theme="?attr/actionBarTheme"
         app:title="@string/learned_animals"
         app:titleTextColor="@color/white"
