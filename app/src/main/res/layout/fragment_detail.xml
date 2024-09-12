@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".DetailFragment">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:theme="?attr/actionBarTheme"
+        app:title="Detail"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:titleTextColor="@color/white" />
+
     <com.google.android.material.circularreveal.cardview.CircularRevealCardView
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -42,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="12dp"
-            android:backgroundTint="#ff784b">
+            android:backgroundTint="@color/orange">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -85,6 +95,5 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:text="@string/learned"/>
-
 
 </LinearLayout>

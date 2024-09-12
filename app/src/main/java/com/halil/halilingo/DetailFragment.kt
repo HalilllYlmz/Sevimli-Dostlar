@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.res.stringResource
+import androidx.navigation.fragment.findNavController
 import com.halil.halilingo.databinding.FragmentDetailBinding
 import java.io.IOException
 import java.util.Locale
@@ -35,8 +37,14 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
 
         if(id == 1) {
             binding.learnedSwitch.isChecked = true
+            binding.txtLearned.text = getString(R.string.learned)
         }else {
             binding.learnedSwitch.isChecked = false
+            binding.txtLearned.text = getString(R.string.unlearned)
+        }
+
+        binding.topAppBar.setNavigationOnClickListener {
+            findNavController().navigateUp()
         }
 
         tts = TextToSpeech(requireContext(), this)
@@ -60,9 +68,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
         }
         binding.learnedSwitch.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked) {
+                binding.txtLearned.text = getString(R.string.learned)
                 learnedAnimals?.add(animal.english)
                 sharedPreferences.edit().putStringSet("learnedWords", learnedAnimals).apply()
             }else {
+                binding.txtLearned.text = getString(R.string.unlearned)
                 learnedAnimals?.remove(animal.english)
                 sharedPreferences.edit().putStringSet("learnedWords", learnedAnimals).apply()
             }

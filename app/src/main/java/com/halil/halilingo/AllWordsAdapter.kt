@@ -18,7 +18,7 @@ class AllWordsAdapter(
         fun bind(wordModel: WordModel) {
             with(binding) {
                 textView.text = wordModel.english
-                textView.setOnClickListener {
+                animalCard.setOnClickListener {
                     onItemClick(wordModel)
                 }
                 val assetManager = root.context.assets

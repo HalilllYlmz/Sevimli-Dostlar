@@ -43,6 +43,9 @@ android {
 
 dependencies {
 
+    // Lottie
+    implementation(libs.lottie)
+
     //Gson
     implementation(libs.gson)
 
