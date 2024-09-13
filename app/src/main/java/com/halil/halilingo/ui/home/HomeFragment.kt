@@ -35,10 +35,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         allWordsList = loadWordModelsFromJson(requireContext()).toMutableList()
 
+
         adapter = AllWordsAdapter(getUnlearnedAnimals()) { animal ->
             val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(animal, 0)
             findNavController().navigate(action)
         }
+
+        refreshList()
+
         binding.rvAllWords.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.rvAllWords.adapter = adapter
