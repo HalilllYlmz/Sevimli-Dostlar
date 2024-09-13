@@ -36,7 +36,7 @@ Bu projeyi kendi makinenizde çalıştırmak için aşağıdaki adımları izley
 
 1. **Proje Deposu:** Bu projeyi GitHub'dan klonlayın:
     ```bash
-    git clone https://github.com/kullaniciadi/sevimli-dostlar.git
+    git clone https://github.com/HalilllYlmz/Sevimli-Dostlar/
     ```
 2. **Android Studio:** Projeyi Android Studio ile açın.
 3. **Build:** Projeyi build edin ve çalıştırın.
