@@ -59,8 +59,7 @@ Bu projeyi kendi makinenizde çalıştırmak için aşağıdaki adımları izley
 
 ## Demo Video
 
-[[[![Demo Video](https://img.youtube.com/vi/wd-VVGRSD_E/0.jpg)](https://www.youtube.com/shorts/wd-VVGRSD_E)
-](https://github.com/user-attachments/assets/74d6826c-9677-4c29-b647-ff8c1bcc6135
+(https://github.com/user-attachments/assets/74d6826c-9677-4c29-b647-ff8c1bcc6135
 )](https://github.com/user-attachments/assets/74d6826c-9677-4c29-b647-ff8c1bcc6135
 )
 ## Lisans
