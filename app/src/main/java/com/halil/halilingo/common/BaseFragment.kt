@@ -1,4 +1,4 @@
-package com.halil.halilingo
+package com.halil.halilingo.common
 
 import android.os.Bundle
 import android.view.LayoutInflater

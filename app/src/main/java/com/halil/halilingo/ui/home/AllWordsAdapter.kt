@@ -1,9 +1,11 @@
-package com.halil.halilingo
+package com.halil.halilingo.ui.home
 
 import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.halil.halilingo.R
+import com.halil.halilingo.data.model.WordModel
 import com.halil.halilingo.databinding.ItemLayoutAllWordsBinding
 import java.io.IOException
 import java.util.Locale

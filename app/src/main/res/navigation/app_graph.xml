@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.halil.halilingo.DetailFragment"
+        android:name="com.halil.halilingo.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
@@ -16,11 +16,11 @@
             android:defaultValue="-1" />
         <argument
             android:name="animal"
-            app:argType="com.halil.halilingo.WordModel" />
+            app:argType="com.halil.halilingo.data.model.WordModel" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.halil.halilingo.HomeFragment"
+        android:name="com.halil.halilingo.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/learnedFragment"
-        android:name="com.halil.halilingo.LearnedFragment"
+        android:name="com.halil.halilingo.ui.learned.LearnedFragment"
         android:label="fragment_learned"
         tools:layout="@layout/fragment_learned" >
         <action

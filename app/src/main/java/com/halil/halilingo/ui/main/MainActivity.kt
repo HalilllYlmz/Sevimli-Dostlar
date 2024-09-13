@@ -1,4 +1,4 @@
-package com.halil.halilingo
+package com.halil.halilingo.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.halil.halilingo.R
 import com.halil.halilingo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

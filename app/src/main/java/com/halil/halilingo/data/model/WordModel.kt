@@ -1,4 +1,4 @@
-package com.halil.halilingo
+package com.halil.halilingo.data.model
 
 import android.content.Context
 import android.os.Parcelable

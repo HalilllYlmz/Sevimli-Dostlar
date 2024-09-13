@@ -1,18 +1,16 @@
-package com.halil.halilingo
+package com.halil.halilingo.ui.splash
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.halil.halilingo.ui.main.MainActivity
+import com.halil.halilingo.R
 import com.halil.halilingo.databinding.ActivitySplashBinding
 
 @SuppressLint("CustomSplashScreen")

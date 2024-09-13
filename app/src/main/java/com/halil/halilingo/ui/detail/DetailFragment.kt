@@ -1,16 +1,16 @@
-package com.halil.halilingo
+package com.halil.halilingo.ui.detail
 
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.TextToSpeech.OnInitListener
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.ui.res.stringResource
 import androidx.navigation.fragment.findNavController
+import com.halil.halilingo.common.BaseFragment
+import com.halil.halilingo.R
 import com.halil.halilingo.databinding.FragmentDetailBinding
 import java.io.IOException
 import java.util.Locale

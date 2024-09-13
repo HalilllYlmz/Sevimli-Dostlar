@@ -1,4 +1,4 @@
-package com.halil.halilingo
+package com.halil.halilingo.ui.home
 
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.halil.halilingo.common.BaseFragment
+import com.halil.halilingo.data.model.WordModel
+import com.halil.halilingo.data.model.loadWordModelsFromJson
 import com.halil.halilingo.databinding.FragmentHomeBinding
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
