@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AnimationUtils
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.halil.halilingo.R
 import com.halil.halilingo.common.BaseFragment
 import com.halil.halilingo.data.model.WordModel
 import com.halil.halilingo.data.model.loadWordModelsFromJson
@@ -43,9 +46,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         refreshList()
 
+        val slideInRight = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_right)
+        val slideInLeft = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_left)
+
+
         binding.rvAllWords.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.rvAllWords.adapter = adapter
+
+        binding.rvAllWords.post {
+            for (i in 0 until binding.rvAllWords.childCount) {
+                val child = binding.rvAllWords.getChildAt(i)
+                val animation = if (i % 2 == 0) slideInLeft else slideInRight
+                child.startAnimation(animation)
+            }
+        }
+
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             refreshList()
