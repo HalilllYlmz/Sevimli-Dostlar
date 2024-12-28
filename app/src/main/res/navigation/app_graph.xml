@@ -11,12 +11,8 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
-            android:name="screenId"
-            app:argType="integer"
-            android:defaultValue="-1" />
-        <argument
             android:name="animal"
-            app:argType="com.halil.halilingo.data.model.WordModel" />
+            app:argType="com.halil.halilingo.data.model.AnimalModel" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -48,5 +44,9 @@
         android:id="@+id/allWordsFragment"
         android:name="com.halil.halilingo.ui.allwords.AllWordsFragment"
         android:label="fragment_all_words"
-        tools:layout="@layout/fragment_all_words" />
+        tools:layout="@layout/fragment_all_words" >
+        <action
+            android:id="@+id/action_allWordsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

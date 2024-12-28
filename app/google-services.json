@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "340887917975",
+    "project_id": "halilingo",
+    "storage_bucket": "halilingo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340887917975:android:6527a36fe9516dd95360d2",
+        "android_client_info": {
+          "package_name": "com.halil.halilingo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC11cllwi1tVCawqcaKLV3EyCp65WVJ4Ig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

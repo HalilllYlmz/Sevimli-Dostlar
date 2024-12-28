@@ -1,17 +1,46 @@
 package com.halil.halilingo.ui.allwords
 
+import android.os.Parcelable
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.halil.halilingo.data.model.AnimalModel
+import kotlinx.parcelize.Parcelize
 
-class AnimalsRepository {
+class AnimalsRepository(
+    private val animalDao: AnimalDao
+) {
+
+    val roomDBAllAnimals: LiveData<List<AnimalModel>> = animalDao.getAllAnimals()
+    val learnedAnimals: LiveData<List<AnimalModel>> = animalDao.getLearnedAnimals()
+    val unlearnedAnimals: LiveData<List<AnimalModel>> = animalDao.getUnlearnedAnimals()
+
+    suspend fun insertAnimal(animal: AnimalModel) {
+        animalDao.insertAnimal(animal)
+    }
+
+    suspend fun updateAnimal(animal: AnimalModel) {
+        animalDao.updateAnimal(animal)
+    }
+
+    suspend fun updateByTurkishName(turkishName: String, isLearned: Boolean) {
+        animalDao.updateByTurkishName(turkishName, isLearned)
+    }
+
+    suspend fun deleteAnimal(animal: AnimalModel) {
+        animalDao.deleteAnimal(animal)
+    }
+
+    suspend fun deleteAllAnimals() {
+        animalDao.deleteAllAnimals()
+    }
 
     private val db = FirebaseFirestore.getInstance()
     private val _animalsLiveData = MutableLiveData<List<Animal>>()
 
-    val animalsLiveData: LiveData<List<Animal>> get() = _animalsLiveData
+    val firebaseAnimalsLiveData: LiveData<List<Animal>> get() = _animalsLiveData
 
     fun fetchAnimals() {
         db.collection("animals")
@@ -31,7 +60,6 @@ class AnimalsRepository {
                 exception.printStackTrace()
             }
     }
-
     fun uploadImageUrlsToFireStore() {
 
         val storage = FirebaseStorage.getInstance()
@@ -52,6 +80,7 @@ class AnimalsRepository {
                                 "imageUrl" to imageUrl
                             )
 
+
                             db.collection("animals")
                                 .add(animalData)
                                 .addOnSuccessListener {
@@ -69,9 +98,10 @@ class AnimalsRepository {
 
     }
 
+    @Parcelize
     data class Animal(
         val turkish: String,
         val english: String,
         val imageUrl: String,
-    )
+    ): Parcelable
 }

@@ -1,23 +1,25 @@
 package com.halil.halilingo.ui.detail
 
-import android.content.Context
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.speech.tts.TextToSpeech.OnInitListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.halil.halilingo.common.BaseFragment
+import com.bumptech.glide.Glide
 import com.halil.halilingo.R
+import com.halil.halilingo.common.BaseFragment
+import com.halil.halilingo.data.model.AnimalModel
 import com.halil.halilingo.databinding.FragmentDetailBinding
-import java.io.IOException
+import com.halil.halilingo.ui.allwords.AnimalsViewModel
 import java.util.Locale
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
 
     private lateinit var tts: TextToSpeech
+    private val animalViewModel: AnimalsViewModel by viewModels()
 
     override fun inflateBinding(
         inflater: LayoutInflater,
@@ -28,17 +30,21 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val animal = DetailFragmentArgs.fromBundle(requireArguments()).animal
-        val id = DetailFragmentArgs.fromBundle(requireArguments()).screenId
 
-        val sharedPreferences = requireContext().getSharedPreferences("LearnedWords", Context.MODE_PRIVATE)
+        Glide.with(binding.ivAnimal.context)
+            .load(animal.imageUrl)
+            .placeholder(R.drawable.gorilla)
+            .error(R.drawable.gorilla)
+            .into(binding.ivAnimal)
 
-        val learnedAnimals = sharedPreferences.getStringSet("learnedWords", mutableSetOf())?.toMutableSet()
 
-        if(id == 1) {
+        if (animal.isLearned) {
             binding.learnedSwitch.isChecked = true
             binding.txtLearned.text = getString(R.string.learned)
-        }else {
+
+        } else {
             binding.learnedSwitch.isChecked = false
             binding.txtLearned.text = getString(R.string.unlearned)
         }
@@ -49,32 +55,23 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
 
         tts = TextToSpeech(requireContext(), this)
 
-        binding.animalText.text = animal.turkish
-        binding.animalEnglishText.text = animal.english
-        val assetManager = requireContext().assets
-        val imageFileName = "${animal.english.lowercase(Locale.getDefault())}.jpg"
+        binding.animalText.text = animal.turkishName
+        binding.animalEnglishText.text = animal.englishName
 
-        try {
-            val inputStream = assetManager.open("images/$imageFileName")
-            val bitmap = BitmapFactory.decodeStream(inputStream)
-            binding.ivAnimal.setImageBitmap(bitmap)
-            inputStream.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-            binding.ivAnimal.setImageResource(R.drawable.gorilla)
-        }
         binding.btnVolume.setOnClickListener {
-            speak(animal.english)
+            animal.englishName?.let { it1 -> speak(it1) }
         }
         binding.learnedSwitch.setOnCheckedChangeListener { _, isChecked ->
-            if(isChecked) {
+            if (isChecked) {
                 binding.txtLearned.text = getString(R.string.learned)
-                learnedAnimals?.add(animal.english)
-                sharedPreferences.edit().putStringSet("learnedWords", learnedAnimals).apply()
-            }else {
+                animal.turkishName?.let {
+                    animalViewModel.updateByTurkishName(it, true)
+                }
+            } else {
                 binding.txtLearned.text = getString(R.string.unlearned)
-                learnedAnimals?.remove(animal.english)
-                sharedPreferences.edit().putStringSet("learnedWords", learnedAnimals).apply()
+                animal.turkishName?.let {
+                    animalViewModel.updateByTurkishName(it, false)
+                }
             }
 
         }
@@ -85,7 +82,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(), OnInitListener {
         if (status == TextToSpeech.SUCCESS) {
             tts.language = Locale.ENGLISH
         } else {
-            // Handle the initialization failure
+            // TODO
         }
     }
 
